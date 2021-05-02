@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Using groups - tsrc documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Using groups";
+    var mkdocs_page_input_path = "guide/groups.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> tsrc documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Usage</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../basics/">Basic usage</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Using groups</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#defining_groups_in_the_manifest">Defining groups in the manifest</a></li>
+    
+
+    <li class="toctree-l3"><a href="#using_groups_in_tsrc_init">Using groups in tsrc init</a></li>
+    
+
+    <li class="toctree-l3"><a href="#updating_workspace_configuration">Updating workspace configuration</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Reference</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../ref/cli/">Command line usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ref/formats/">Configuration files formats</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../contrib/">Contributing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../code-manifesto/">Code manifesto</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../faq/">FAQ</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../changelog/">Changelog</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">tsrc documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Usage &raquo;</li>
+        
+      
+    
+    <li>Using groups</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dmerejkowsky/tsrc/edit/master/docs/guide/groups.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Sometimes it can be necessary to create groups of repositories, especially if the number
+of repositories grows and if you have people in different teams work on different repositories.</p>
+<h2 id="defining_groups_in_the_manifest">Defining groups in the manifest<a class="headerlink" href="#defining_groups_in_the_manifest" title="Permanent link">&para;</a></h2>
+<p>The first step is to edit the <code>manifest.yml</code> file to describe the groups. Here's an
+example.</p>
+<pre><code class="language-yaml">repos:
+  - {url: git@gitlab.local:acme/one,   dest: one}
+  - {url: git@gitlab.local:acme/two,   dest: two}
+  - {url: git@gitlab.local:acme/three, dest: three}
+
+groups:
+  default:
+    g1: [one, two]
+    g2: [three]
+</code></pre>
+<p>Here we define a <code>g1</code> group that contains repositories named <code>one</code> and <code>two</code>,
+and a <code>g2</code> group that contains the repository named <code>three</code>.</p>
+<h2 id="using_groups_in_tsrc_init">Using groups in <code>tsrc init</code><a class="headerlink" href="#using_groups_in_tsrc_init" title="Permanent link">&para;</a></h2>
+<p>If you only need the repositories in the <code>g1</code> group you can run:</p>
+<pre><code>tsrc init git@gitlab.local:acme/manifest --group g1
+</code></pre>
+<h2 id="updating_workspace_configuration">Updating workspace configuration<a class="headerlink" href="#updating_workspace_configuration" title="Permanent link">&para;</a></h2>
+<p>Alternatively, you can edit the <code>.tsrc/config.yml</code> file, like this:</p>
+<pre><code class="language-yaml">manifest_url: git@gitlab.local:acme/manifest.git
+manifest_branch: master
+repo_groups:
+- g1   # &lt;- specify the list of groups to use
+</code></pre>
+<p>You can use this technique to change the groups used in a given workspace -
+the above method using <code>init</code> only works to <em>create</em> new workspaces.</p>
+<p>The config file contains other configuration options, which should be
+self-describing - if not, head over to the
+<a href="../../ref/formats/#workspace_configuration_file">configurations format section</a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../ref/cli/" class="btn btn-neutral float-right" title="Command line usage">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../basics/" class="btn btn-neutral" title="Basic usage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dmerejkowsky/tsrc/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../basics/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../ref/cli/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

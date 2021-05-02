@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Configuration files formats - tsrc documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Configuration files formats";
+    var mkdocs_page_input_path = "ref/formats.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> tsrc documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Usage</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../guide/basics/">Basic usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../guide/groups/">Using groups</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Reference</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../cli/">Command line usage</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Configuration files formats</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#manifestyml">manifest.yml</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#top_fields">Top fields</a></li>
+        
+            <li><a class="toctree-l4" href="#repos">repos</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#groups">groups</a></li>
+    
+
+    <li class="toctree-l3"><a href="#workspace_configuration_file">Workspace configuration file</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../contrib/">Contributing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../code-manifesto/">Code manifesto</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../faq/">FAQ</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../changelog/">Changelog</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">tsrc documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Reference &raquo;</li>
+        
+      
+    
+    <li>Configuration files formats</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dmerejkowsky/tsrc/edit/master/docs/ref/formats.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>All configuration files use <a href="http://www.yaml.org/">YAML</a> syntax.</p>
+<h2 id="manifestyml">manifest.yml<a class="headerlink" href="#manifestyml" title="Permanent link">&para;</a></h2>
+<p>The manifest is always parsed as a dictionary.</p>
+<h3 id="top_fields">Top fields<a class="headerlink" href="#top_fields" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>repos</code> (required): list of repositories to clone</li>
+<li><code>groups</code> (optional): list of groups</li>
+</ul>
+<h3 id="repos">repos<a class="headerlink" href="#repos" title="Permanent link">&para;</a></h3>
+<p>Each repository is also a dictionary, containing:</p>
+<ul>
+<li>Either:<ul>
+<li><code>url</code> if you just need one remote named <code>origin</code></li>
+<li>A list of remotes with a <code>name</code> and <code>url</code>. In that case, the first remote
+  will be used for cloning the repository.</li>
+</ul>
+</li>
+<li><code>dest</code> (required): relative path of the repository in the workspace</li>
+<li><code>branch</code> (optional): The branch to use when cloning the repository (defaults
+  to <code>master</code>)</li>
+<li><code>tag</code> (optional):<ul>
+<li>When running <code>tsrc init</code>: Project will be cloned at the provided tag.</li>
+<li>When running <code>tsrc sync</code>:  If the project is clean, project will be reset
+to the given tag, else a warning message will be printed.</li>
+</ul>
+</li>
+<li><code>sha1</code> (optional):<ul>
+<li>When running <code>tsrc init</code>: Project will be cloned, and then reset to the given sha1.</li>
+<li>When running <code>tsrc sync</code>:  If the project is clean, project will be reset
+to the given sha1, else a warning message will be printed.</li>
+</ul>
+</li>
+<li><code>copy</code> (optional): A list of dictionaries with <code>file</code> and <code>dest</code> keys.</li>
+<li><code>symlink</code> (optional): A list of dictionaries with <code>source</code> and <code>target</code> keys.</li>
+</ul>
+<p>Here's a full example:</p>
+<pre><code class="language-yaml">repos:
+  - url: git@gitlab.local:proj1/foo
+    dest: foo
+    branch: next
+
+  - remotes:
+      - name: origin
+        url: git@gitlab.local:proj1/bar
+      - name: upstream
+        url: git@github.com:user/bar
+    dest: bar
+    branch: master
+    sha1: ad2b68539c78e749a372414165acdf2a1bb68203
+
+  - url: git@gitlab.local:proj1/app
+    dest: app
+    tag: v0.1
+    copy:
+      - file: top.cmake
+        dest: CMakeLists.txt
+      - file: .clangformat
+    symlink:
+      - source: app/some_file
+        target: ../foo/some_file
+</code></pre>
+<p>In this example:</p>
+<ul>
+<li>First, <code>proj1/foo</code> will be cloned into <code>&lt;workspace&gt;/foo</code> using the <code>next</code> branch.</li>
+<li>Then, <code>proj1/bar</code> will be cloned into <code>&lt;workspace&gt;/bar</code> using the <code>master</code> branch, and reset to <code>ad2b68539c78e749a372414165acdf2a1bb68203</code>.</li>
+<li>Finally:<ul>
+<li><code>proj1/app</code> will be cloned into <code>&lt;workspace&gt;/app</code> using the <code>v0.1</code> tag,</li>
+<li><code>top.cmake</code> will be copied from <code>proj1/app/top.cmake</code> to <code>&lt;workspace&gt;/CMakeLists.txt</code>,</li>
+<li><code>.clang-format</code> will be copied from <code>proj1/app/</code> to <code>&lt;workspace&gt;/</code>, and</li>
+<li>a symlink will be created from <code>&lt;workspace&gt;/app/some_file</code> to <code>&lt;workspace&gt;/foo/some_file</code>.</li>
+</ul>
+</li>
+</ul>
+<p>Note that <code>copy</code> only works with files, not directories.</p>
+<p>The source path for a symbolic link is relative to the top-level <code>&lt;workspace&gt;</code>, whereas
+each target path is then relative to the associated source.  (This path relationship
+is essentially identical to how <code>ln -s</code> works on the command line in Unix-like
+environments.)  Multiple symlinks can be specified; each must specify a source and target.</p>
+<p>Symlink creation is supported on all operating systems, but creation of NTFS symlinks on
+Windows requires that the current user have appropriate security policy permission
+(SeCreateSymbolicLinkPrivilege).  By default, only administrators have that privilege set,
+although newer versions of Windows 10 support a Developer Mode that permits unprivileged
+accounts to create symlinks.  Note that Cygwin running on Windows defaults to creating
+links via Windows shortcuts, which do <em>not</em> require any special privileges.
+(Cygwin's symlink behavior can be user controlled with the <code>winsymlinks</code> setting
+in the <code>CYGWIN</code> environment variable.)</p>
+<h2 id="groups">groups<a class="headerlink" href="#groups" title="Permanent link">&para;</a></h2>
+<p>The <code>groups</code> section lists the groups by name. Each group should have a <code>repos</code> field
+containing a list of repositories (only repositories defined in the <code>repos</code> section are allowed).</p>
+<p>The groups can optionally include other groups, with a <code>includes</code> field which should be
+a list of existing group names.</p>
+<p>The group named <code>default</code>, if it exists, will be used to know which repositories to clone
+when using <code>tsrc init</code> and the <code>--group</code> command line argument is not used.</p>
+<p>Example:</p>
+<pre><code class="language-yaml">repos:
+  - dest: a
+    url: ..
+  - dest: b
+    url: ..
+  - dest: bar
+    url: ..
+  - dest: baz
+    url: ..
+
+groups:
+  default:
+    repos: [a, b]
+  foo:
+    repos: [bar, baz]
+    includes: [default]
+</code></pre>
+<pre><code class="language-console">$ tsrc init &lt;manifest_url&gt;
+# Clones a, b
+$ tsrc init &lt;manifest_url&gt; --group foo
+# Clones a, b, bar and baz
+</code></pre>
+<p>Note that <code>tsrc init</code> records the names of the groups it was invoked with, so that <code>tsrc sync</code> re-uses them later on. This means that if you want to change the groups used, you must re-run <code>tsrc init</code> with the new group list.</p>
+<h2 id="workspace_configuration_file">Workspace configuration file<a class="headerlink" href="#workspace_configuration_file" title="Permanent link">&para;</a></h2>
+<p>The workspace configuration lies in <code>&lt;workspace&gt;/.tsrc/config.yml</code>.  It is
+created by <code>tsrc init</code> then read by <code>tsrc sync</code> and other commands. It can
+be freely edited by hand.</p>
+<p>Here's an example:</p>
+<pre><code class="language-yaml">manifest_url: git@acme.corp:manifest.git
+manifest_branch: master
+shallow_clones: false
+repo_groups:
+- default
+clone_all_repos: false
+</code></pre>
+<ul>
+<li><code>manifest_url</code>: an git URL containing a <code>manifest.yml</code> file</li>
+<li><code>manifest_branch</code>: the branch to use when updating the local manifest (e.g, the first step of <code>tsrc sync</code>)</li>
+<li><code>shallow_clones</code>: whether to use only shallow clones when cloning missing repositories</li>
+<li><code>repo_groups</code>: the list of groups to use - every mentioned group must be present in the <code>manifest.yml</code> file (see above)</li>
+<li><code>clone_all_repos</code>: whether to ignore groups entirely and clone every repository from the manifest instead</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../contrib/" class="btn btn-neutral float-right" title="Contributing">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../cli/" class="btn btn-neutral" title="Command line usage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dmerejkowsky/tsrc/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../cli/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../contrib/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

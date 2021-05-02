@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Command line usage - tsrc documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Command line usage";
+    var mkdocs_page_input_path = "ref/cli.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> tsrc documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Usage</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../guide/basics/">Basic usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../guide/groups/">Using groups</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Reference</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Command line usage</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#important_note">Important note</a></li>
+    
+
+    <li class="toctree-l3"><a href="#general">General</a></li>
+    
+
+    <li class="toctree-l3"><a href="#global_options">Global options</a></li>
+    
+
+    <li class="toctree-l3"><a href="#usage">Usage</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../formats/">Configuration files formats</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../contrib/">Contributing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../code-manifesto/">Code manifesto</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../faq/">FAQ</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../changelog/">Changelog</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">tsrc documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Reference &raquo;</li>
+        
+      
+    
+    <li>Command line usage</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dmerejkowsky/tsrc/edit/master/docs/ref/cli.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="important_note">Important note<a class="headerlink" href="#important_note" title="Permanent link">&para;</a></h2>
+<p>We use the <a href="https://docs.python.org/3/library/argparse.html">argparse</a> library to
+parse command line arguments, so the <code>--help</code> messages are always up-to-date,
+probably more so than this documentation :)</p>
+<h2 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h2>
+<p><code>tsrc</code> uses the same "subcommand" pattern as git does.</p>
+<p>Options common to all commands are placed right before the command name.</p>
+<p>Options after the command name only apply to this command.</p>
+<p>For instance:</p>
+<pre><code class="language-console">$ tsrc --verbose sync
+$ tsrc init MANIFEST_URL
+</code></pre>
+<p>Finally, note that like <code>git</code>, tsrc will walk up the folders hierarchy looking for a <code>.tsrc</code>
+folder, which means you can run tsrc commands anywhere in your workspace, not
+just at the top.</p>
+<h2 id="global_options">Global options<a class="headerlink" href="#global_options" title="Permanent link">&para;</a></h2>
+<dl>
+<dt>--verbose</dt>
+<dd>show verbose messages</dd>
+<dt>-q, --quiet</dt>
+<dd>hide everything except errors and warnings</dd>
+<dt>--color [always|never|auto]</dt>
+<dd>control using color for messages (default 'auto', on if stdout is a terminal)</dd>
+</dl>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<dl>
+<dt>tsrc init MANIFEST_URL [--group GROUP1, GROUP2] [--remote REMOTE]</dt>
+<dd>
+<p>Initializes a new workspace.</p>
+<p>MANIFEST_URL should be a git URL containing a valid
+<code>manifest.yml</code> file.</p>
+<p>The <code>-g,--groups</code>  option can be used to specify a list of groups
+to use when cloning repositories.</p>
+<p>The <code>-s,--shallow</code> option can be used to make shallow clone of all repositories.</p>
+<p>If you want to add or remove a group in your workspace, you can
+edit the configuration file in <code>&lt;workspace&gt;/.tsrc/config.yml</code></p>
+<p>The <code>-r,--remote</code> option can be used to set a fix remote to use when cloning
+and syncing the repositories. If this flag is set, the remote from the manifest
+with the given name will be used for all repos. It is an error if a repo
+does not have this remote specified.</p>
+</dd>
+<dt>tsrc foreach -- command --opt1 arg1</dt>
+<dd>
+<p>Runs <code>command --opt1 arg1</code> in every repository, and report failures
+at the end.</p>
+<p>Note the <code>--</code> token to separate options for <code>command</code> from options for
+<code>tsrc</code>.</p>
+</dd>
+<dt>tsrc foreach -c 'command --opt1 arg1'</dt>
+<dd>Ditto, but uses a shell (<code>/bin/sh</code> on Linux or macOS, <code>cmd.exe</code> on Windows).</dd>
+<dt>tsrc log --from FROM [--to TO]</dt>
+<dd>
+<p>Display a summary of all changes since <code>FROM</code> (should be a tag),
+to <code>TO</code> (defaulting to <code>master</code>).</p>
+<p>Note that if no changes are found, the repository will not be displayed at
+all.</p>
+</dd>
+<dt>tsrc status</dt>
+<dd>
+<p>Displays a summary of the status of your workspace:</p>
+<ul>
+<li>Shows dirty repositories</li>
+<li>Shows repositories not on the expected branch</li>
+</ul>
+</dd>
+<dt>tsrc sync</dt>
+<dd>Updates all the repositories and shows a summary at the end.</dd>
+<dt>tsrc version</dt>
+<dd>Displays <code>tsrc</code> version number, along additional data if run from a git clone.</dd>
+<dt>tsrc apply-manifest PATH</dt>
+<dd>Apply changes from the manifest file located at <code>PATH</code>. Useful to check changes
+in the manifest before publishing them to the manifest repository.</dd>
+</dl>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../formats/" class="btn btn-neutral float-right" title="Configuration files formats">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../guide/groups/" class="btn btn-neutral" title="Using groups"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dmerejkowsky/tsrc/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../guide/groups/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../formats/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

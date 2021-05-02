@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Code manifesto - tsrc documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Code manifesto";
+    var mkdocs_page_input_path = "code-manifesto.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> tsrc documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Usage</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../guide/basics/">Basic usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../guide/groups/">Using groups</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Reference</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ref/cli/">Command line usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ref/formats/">Configuration files formats</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../contrib/">Contributing</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Code manifesto</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#basics">Basics</a></li>
+    
+
+    <li class="toctree-l2"><a href="#pet_peeves">Pet peeves</a></li>
+    
+
+    <li class="toctree-l2"><a href="#doc_strings_and_comments_in_production_code">Doc strings and comments in production code</a></li>
+    
+
+    <li class="toctree-l2"><a href="#collections">Collections</a></li>
+    
+
+    <li class="toctree-l2"><a href="#functions">Functions</a></li>
+    
+
+    <li class="toctree-l2"><a href="#imports">Imports</a></li>
+    
+
+    <li class="toctree-l2"><a href="#classes">Classes</a></li>
+    
+
+    <li class="toctree-l2"><a href="#file_paths">File paths</a></li>
+    
+
+    <li class="toctree-l2"><a href="#error_handling">Error handling</a></li>
+    
+
+    <li class="toctree-l2"><a href="#output_messages_to_the_user">Output messages to the user</a></li>
+    
+
+    <li class="toctree-l2"><a href="#tests">Tests</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#docstrings">Docstrings</a></li>
+        
+            <li><a class="toctree-l3" href="#assertions_with_lists">Assertions with lists</a></li>
+        
+            <li><a class="toctree-l3" href="#assertion_order">Assertion order</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../faq/">FAQ</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../changelog/">Changelog</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">tsrc documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Code manifesto</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dmerejkowsky/tsrc/edit/master/docs/code-manifesto.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="basics">Basics<a class="headerlink" href="#basics" title="Permanent link">&para;</a></h1>
+<p>We use <code>black</code> to enforce a coding style matching <a href="https://www.python.org/dev/peps/pep-0008/">PEP8</a>.</p>
+<p>In addition, every text file must be pushed using UNIX line endings. (On Windows, you are advised to set <code>core.autocrlf</code> to <code>true</code> in your git config file.)</p>
+<h1 id="pet_peeves">Pet peeves<a class="headerlink" href="#pet_peeves" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Prefer double quotes for string literals:</li>
+</ul>
+<pre><code class="language-python"># Yes
+def bar():
+   &quot;&quot;&quot; bar stuff &quot;&quot;&quot;
+   a = &quot;foo&quot;
+
+
+# No
+def bar():
+   ''' bar stuff '''
+   a = 'foo'
+
+# Exception
+my_str = 'It contains some &quot;quotes&quot; inside'
+</code></pre>
+<ul>
+<li>Use the fact that empty data structures are falsy:</li>
+</ul>
+<pre><code class="language-python"># Yes
+if not errors:
+    ...
+# No
+if len(errors) == 0:
+    ...
+</code></pre>
+<ul>
+<li>Avoid using double negatives:</li>
+</ul>
+<pre><code class="language-python"># Yes
+def make_coffee(sugar=False):
+    if sugar:
+        print(&quot;with sugar&quot;)
+
+# No
+def make_coffee(without_sugar=True):
+    if not without_sugar:
+        print(&quot;with sugar&quot;)
+</code></pre>
+<ul>
+<li>Prefer using  "f-strings" if possible, <code>+</code> may also work in some contexts.</li>
+</ul>
+<pre><code class="language-python"># Yes
+message = f&quot;Welcome {name}!&quot;
+
+# No
+message = &quot;Welcome, {}!&quot;.format(name)
+message = &quot;Welcome, %s!&quot; % name
+message = &quot;Welcome, &quot; + name + &quot;!&quot;
+
+# Okayish
+with_ext = name + &quot;.txt&quot;
+</code></pre>
+<ul>
+<li>Use <code>textwrap.dedent()</code> to build nice-looking multi-lines strings:</li>
+</ul>
+<pre><code class="language-python"># Yes
+def foo():
+    long_message = textwrap.dedent(&quot;&quot;&quot;\
+        first line
+        second line
+        third line&quot;&quot;&quot;)
+
+# No
+def foo():
+    long_message = &quot;&quot;&quot;\
+first line
+second line
+third line
+&quot;&quot;&quot;
+</code></pre>
+<ul>
+<li>Do not initialize several variables on the same line, unless they come from a tuple (for instance the return of a function, or a iteration on a directory)</li>
+</ul>
+<pre><code class="language-python"># Yes
+ok, mess  = run_command()
+
+for test_result in test_results:
+    outcome, message = res
+
+# No
+foo, bar = False, &quot;&quot;
+
+class Foo:
+    self.bar, self.baz = None, True
+</code></pre>
+<ul>
+<li>Do not use conditional expressions. The order is not the same as the ternary operator in C++ and JavaScript, so it should be avoided:</li>
+</ul>
+<pre><code class="language-python"># Yes
+if foo:
+   a = &quot;ok&quot;
+else:
+   a = &quot;nope&quot;
+
+
+# No:
+a = &quot;ok&quot; if foo else &quot;nope&quot;
+</code></pre>
+<ul>
+<li>Use <code>if ... in ...</code> when you can:</li>
+</ul>
+<pre><code class="language-python"># Yes
+if value in [&quot;option1&quot;, &quot;option2&quot;]:
+   ...
+
+# No
+if value == &quot;option1&quot; or value == &quot;option2&quot;
+  ...
+</code></pre>
+<h1 id="doc_strings_and_comments_in_production_code">Doc strings and comments in production code<a class="headerlink" href="#doc_strings_and_comments_in_production_code" title="Permanent link">&para;</a></h1>
+<p>First off, bad comments are worse that no comments.</p>
+<p>Also note that you should use comments to explain <strong>why</strong>, never <strong>what</strong>. If the <strong>what</strong> is no clear, it means the behavior of the function or method cannot be easily understood by reading implementation, and so you should fix the implementation instead.</p>
+<p>In conclusion, use comments and doc strings sparingly: that way, they will not rot and they will stay useful.</p>
+<p>Note: this does not apply for tests (see below).</p>
+<h1 id="collections">Collections<a class="headerlink" href="#collections" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Use .extend() instead of += to concatenate lists:</li>
+</ul>
+<pre><code class="language-python"># Yes
+list_1.extend(list_2)
+
+# No
+list_1 += list_2
+</code></pre>
+<ul>
+<li>Only use <code>list()</code> and <code>dict()</code> to <em>convert</em> a value to a list or dict. Prefer literals when possible</li>
+</ul>
+<pre><code class="language-python"># Yes
+my_list = []
+my_dict = {}
+
+# Also yes:
+my_list = list(yield_stuff())
+
+# No
+my_list = list()
+my_dict = dict()
+</code></pre>
+<ul>
+<li>Also use explicit call to list() in order to make a copy:</li>
+</ul>
+<pre><code class="language-python"># Yes
+my_copy = list(my_list)
+
+# Also yes:
+my_copy = copy.copy(my_list)
+
+# No
+my_copy = my_list[:]
+</code></pre>
+<ul>
+<li>Use list comprehensions instead of loops and "functional" methods:</li>
+</ul>
+<pre><code class="language-python"># Yes
+my_list = [foo(x) for x in other_list]
+
+# No
+my_list = list()
+for x in other_list:
+     x.append(foo(x))
+
+# Also no
+my_list = map(foo, other_list)
+
+# Yes
+even_nums = [x for x in nums if is_even(x)]
+
+# No
+even_nums = filter(is_even, nums)
+</code></pre>
+<ul>
+<li>Use iterable syntax instead of building an explicit list:</li>
+</ul>
+<pre><code class="language-python"># Yes
+max(len(x) for x in my_iterable)
+
+# No
+max([len(x) for x in my_iterable])
+</code></pre>
+<ul>
+<li>Use plural names for collections. This has the nice benefit of allowing you to have meaningful loop names:</li>
+</ul>
+<pre><code class="language-python">for result in results:
+   # do something with result
+</code></pre>
+<h1 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h1>
+<p>Prefer using keyword-only parameters when possible:</p>
+<pre><code class="language-python"># Yes
+# If the parameter needs a default value:
+def foo(bar, *, spam=True):
+    ...
+
+# If it does not:
+def foo(bar, *, spam):
+    ...
+
+
+# No
+def foo(bar, spam=True):
+    ...
+</code></pre>
+<p>If you use the last form, Python will let you use <code>foo(42, False)</code>, and set <code>spam</code> to False.
+This can cause problems if someone ever changes the <code>foo</code> function and adds a new optional argument before <code>spam</code>:</p>
+<pre><code class="language-python">def foo(bar, eggs=False, spam=Tue):
+    ...
+</code></pre>
+<p>After such a change, the line <code>foo(42, False)</code> which used to call <code>foo</code> with <code>spam=False</code> now calls <code>foo</code> with <code>bar=False</code> and <code>spam=True</code>, leading to all kinds of interesting bugs.</p>
+<p>Exception to this rule: when the keyword is obvious and will not change:</p>
+<pre><code class="language-python">def get(value, default=None):
+  ...
+</code></pre>
+<h1 id="imports">Imports<a class="headerlink" href="#imports" title="Permanent link">&para;</a></h1>
+<p>For any <code>foo.py</code> file, <code>import foo</code> must never fail, unless there is a necessary module that could not be found. Do not catch  <code>ImportError</code> unless it is necessary, for instance to deal with optional dependencies.</p>
+<pre><code class="language-python">import required_module
+
+HAS_NICE_FEATURE = True
+try:
+    import nice_lib
+except ImportError:
+    HAS_NICE_FEATURE = False
+
+#...
+
+if HAS_NICE_FEATURE:
+    #....
+</code></pre>
+<ul>
+<li>
+<p>Importing Python files should never cause side effects. It's OK to initialize global variables, but you should never call functions outside a <code>if __name__ == main() block</code>.</p>
+</li>
+<li>
+<p>Prefer using fully-qualified imports and names:</p>
+</li>
+</ul>
+<pre><code class="language-python"># Yes
+import foo.bar
+my_bar = foo.bar.Bar()
+
+# No
+from foo import bar
+my_bar = bar.Bar()
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We allow a few exceptions like <code>from pathlib import Path</code> or importing classes directory in tests. Use your best judgment.</p>
+</div>
+<h1 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h1>
+<ul>
+<li>When you want to make sure a class follows an interface, use <code>abc.ABCMeta</code> instead of raising <code>NotImplementedError</code>. This way you get the error when the class is instantiated instead of when the method is called.</li>
+</ul>
+<pre><code class="language-python"># Yes
+class AbstractFoo(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def foo(self):
+        pass
+
+
+# No
+class AbstractFoo:
+     def foo(self):
+        raise NotImplementedError()
+
+</code></pre>
+<ul>
+<li>Make sure to use properties when relevant, instead of <code>get_</code> methods.</li>
+</ul>
+<pre><code class="language-python"># Yes
+class Person:
+      def __init__(self, first_name, last_name):
+            self.first_name = first_name
+            self.last_name = last_name
+
+      @property
+      def full_name(self):
+          return f&quot;{self.first_name} {self.last_name}&quot;
+
+
+# No:
+class Foo:
+      def __init__(self, first_name, last_name):
+            self.first_name = first_name
+            self.last_name = last_name
+            self.full_name = f&quot;{self.first_name} {self.last_name}&quot;
+</code></pre>
+<p>For instance, here:</p>
+<ul>
+<li><code>full_name</code> is read-only</li>
+<li>The attribute is automatically updated if <code>first_name</code> changes after the object is initialized.</li>
+</ul>
+<p>Note that <code>get_</code> methods are OK if they do more than simple computations (expensive in time or size, throwing exceptions ...)</p>
+<h1 id="file_paths">File paths<a class="headerlink" href="#file_paths" title="Permanent link">&para;</a></h1>
+<ul>
+<li>If you are manipulating filenames, use the <code>path.py</code>library and suffix the variable by <code>_path</code>. Avoid using <code>os.path</code> or <code>shutil</code> methods when <code>path.py</code> is better.</li>
+</ul>
+<pre><code class="language-python"># Yes
+work_path = Path(&quot;foo/work&quot;)
+work_path.mkdir_p()
+foo_path = work_path / &quot;foo.txt&quot;
+foo_path.write_text(&quot;this is bar&quot;)
+
+# No
+work_path = os.path.join(foo, &quot;work&quot;)
+os.path.mkdir(work_path, exist_ok=True)
+foo_path = os.path.join(work_path, &quot;foo.txt&quot;)
+with open(foo_path, &quot;w&quot;) as fileobj:
+    fileobj.write(&quot;this is foo&quot;)
+</code></pre>
+<h1 id="error_handling">Error handling<a class="headerlink" href="#error_handling" title="Permanent link">&para;</a></h1>
+<ul>
+<li>All exceptions raised from within <code>tsrc</code> should derive from <code>tsrc.Error</code>.</li>
+<li>When using external code (from the standard library or a third-party library), you should catch the exceptions and optionally re-raise them.</li>
+</ul>
+<h1 id="output_messages_to_the_user">Output messages to the user<a class="headerlink" href="#output_messages_to_the_user" title="Permanent link">&para;</a></h1>
+<p>Do not use <code>print</code>, use <a href="https://dmerejkowsky.github.io/python-cli-ui#api">python-cli-ui functions</a> instead. This makes it easier to distinguish between real messages and the throw-away <code>print</code> statements you add for debugging.</p>
+<p>Also, using "high-level" methods such as <code>ui.info_1()</code> or <code>ui.warning()</code> will make it easier to have a consistent user interface.</p>
+<h1 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">&para;</a></h1>
+<h2 id="docstrings">Docstrings<a class="headerlink" href="#docstrings" title="Permanent link">&para;</a></h2>
+<p>If you think the test implementation is complex, add a human-readable description
+of the test scenario in the doc string.</p>
+<p>For instance:</p>
+<pre><code class="language-python">def test_sync_with_errors(...):
+    &quot;&quot;&quot;&quot; Scenario:
+    * Create a manifest with two repos (foo and bar)
+    * Initialize a workspace from this manifest
+    * Push a new file to the foo repo
+    * Create a merge conflict in the foo repo
+    * Run `tsrc sync`
+    * Check that the command fails and produces the proper error message
+    &quot;&quot;&quot;
+</code></pre>
+<h2 id="assertions_with_lists">Assertions with lists<a class="headerlink" href="#assertions_with_lists" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use tuple unpacking to write shorter assertions:</li>
+</ul>
+<pre><code class="language-python"># Yes
+actual_list = function_that_returns_list()
+(first, second) = actual_list
+assert first == something
+assert second == something_else
+
+# NO
+actual_list = function_that_returns_list()
+assert len(actual_list) == 2
+first = actual_list[0]
+second = actual_list[1]
+assert first == something
+assert second == something_else
+</code></pre>
+<h2 id="assertion_order">Assertion order<a class="headerlink" href="#assertion_order" title="Permanent link">&para;</a></h2>
+<p>When writing assertions, use the form <code>assert &lt;actual&gt; == &lt;expected&gt;</code>:</p>
+<pre><code class="language-python"># Yes
+def test_foo():
+    assert foo(42) == True
+
+def test_big_stuff():
+    actual_result = ...
+    expected_result = ...
+
+    assert actual_result == expected_result
+
+
+# No
+def test_foo():
+    assert True == foo(42)
+
+
+def test_big_stuff():
+    actual_result = ...
+    expected_result = ...
+
+    assert expected_result == actual_result
+</code></pre>
+<p>Rationale:</p>
+<ul>
+<li>The <code>assert(expected, actual)</code> convention comes from JUnit but we are not writing Java code,
+  and besides, the <code>assert(actual, expected)</code> convention also exists in other tools.</li>
+<li><code>pytest</code> does not really care, but we prefer being consistent in all tests.</li>
+<li>It's a bit closer to what you would say in English: <em>"Assert that the result of foo() is 42"</em>.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../faq/" class="btn btn-neutral float-right" title="FAQ">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../contrib/" class="btn btn-neutral" title="Contributing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dmerejkowsky/tsrc/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../contrib/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../faq/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

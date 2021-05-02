@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>FAQ - tsrc documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "FAQ";
+    var mkdocs_page_input_path = "faq.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> tsrc documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Usage</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../guide/basics/">Basic usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../guide/groups/">Using groups</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Reference</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ref/cli/">Command line usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ref/formats/">Configuration files formats</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../contrib/">Contributing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../code-manifesto/">Code manifesto</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">FAQ</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#why_not_repo">Why not repo?</a></li>
+    
+
+    <li class="toctree-l2"><a href="#why_not_git-subrepo_mu-repo_or_gr">Why not git-subrepo, mu-repo, or gr?</a></li>
+    
+
+    <li class="toctree-l2"><a href="#why_not_git_submodule">Why not git submodule?</a></li>
+    
+
+    <li class="toctree-l2"><a href="#why_not_using_pygit2_or_similar_instead_of_running_git_commands">Why not using pygit2 or similar instead of running git commands?</a></li>
+    
+
+    <li class="toctree-l2"><a href="#why_do_you_hide_which_git_commands_are_run">Why do you hide which git commands are run?</a></li>
+    
+
+    <li class="toctree-l2"><a href="#why_argh">Why argh?</a></li>
+    
+
+    <li class="toctree-l2"><a href="#why_yaml">Why YAML?</a></li>
+    
+
+    <li class="toctree-l2"><a href="#why_do_i_have_to_create_a_separate_git_repo_with_just_one_file_in_it">Why do I have to create a separate git repo with just one file in it?</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../changelog/">Changelog</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">tsrc documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>FAQ</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dmerejkowsky/tsrc/edit/master/docs/faq.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="why_not_repo">Why not repo?<a class="headerlink" href="#why_not_repo" title="Permanent link">&para;</a></h1>
+<p>We used <a href="https://android.googlesource.com/tools/repo/">repo</a> for a while, but
+found that tsrc had both a better command line API and a nicer output.</p>
+<p>On a less subjective level:</p>
+<ul>
+<li>
+<p>Good support for Windows (no need for Cygwin or anything like that)</p>
+</li>
+<li>
+<p>Also, tsrc tries hard to never do any destructive operation or unexpected
+  actions.</p>
+<p>For instance, <code>tsrc</code> never puts you in a "detached HEAD" state,
+nor does automatic rebase. It also never touches dirty repositories.</p>
+<p>This is achieved by using mostly 'porcelain' commands from git, instead of
+relying on plumbings internals.</p>
+</li>
+</ul>
+<p>Also (and this matters a lot if you think about contribution):</p>
+<ul>
+<li>Uses PEP8 coding style, enforced with <code>black</code></li>
+<li>Comprehensive test suite</li>
+<li>Fully type-checked with <code>mypy</code></li>
+</ul>
+<p>Note that there are a few features present in <code>repo</code> that are missing from <code>tsrc</code>
+(but may be implemented in the future). Feel free to open a feature request
+if needed!</p>
+<h1 id="why_not_git-subrepo_mu-repo_or_gr">Why not git-subrepo, mu-repo, or gr?<a class="headerlink" href="#why_not_git-subrepo_mu-repo_or_gr" title="Permanent link">&para;</a></h1>
+<p>All this projects are fine but did not match our needs:</p>
+<ul>
+<li><a href="https://github.com/ingydotnet/git-subrepo">git-subrepo</a> squashes commits, and
+  we prefer having normal clones everywhere.</li>
+<li><a href="https://fabioz.github.io/mu-repo/">mu-repo</a> is nice and contains an
+  interesting dependency management feature, but currently we do not need this complexity.</li>
+</ul>
+<p>In any case, now that the whole team is using <code>tsrc</code> all the time, it's likely
+we'll keep using <code>tsrc</code> in the future.</p>
+<h1 id="why_not_git_submodule">Why not git submodule?<a class="headerlink" href="#why_not_git_submodule" title="Permanent link">&para;</a></h1>
+<p>It's all about workflow.</p>
+<p>With <code>git-submodule</code>, you have a 'parent' repository and you freeze the state of
+the 'children' repositories to a specific commit.</p>
+<p>It's useful when you want to re-build a library you've forked when you build
+your main project, or when you have a library or build tools you want to
+factorize across repositories: this means that each 'parent' repository can
+have its children on any commit they want.</p>
+<p>With <code>tsrc</code>, all repositories are equal, and what you do instead is to make sure
+all the branches (or tags) are consistent across repositories.</p>
+<p>For instance, if you have <code>foo</code> and <code>bar</code>, you are going to make sure the
+'master' branch of <code>foo</code> is always compatible to the 'master' branch of <code>bar</code>.</p>
+<p>Or if you want to go back to the state of the '0.42' release, you will run:
+<code>tsrc foreach -- git reset --hard v0.42</code>.</p>
+<p>Note that since <code>tsrc 0.2</code> you can also freeze the commits of some of the
+repositories.</p>
+<p>Last but not least, with <code>tsrc</code> you do everything with commands like <code>tsrc
+init</code> and <code>tsrc sync</code>, or simple <code>yaml</code> files,  which is much easier than
+using the <code>git submodule</code> CLI.</p>
+<h1 id="why_not_using_pygit2_or_similar_instead_of_running_git_commands">Why not using pygit2 or similar instead of running git commands?<a class="headerlink" href="#why_not_using_pygit2_or_similar_instead_of_running_git_commands" title="Permanent link">&para;</a></h1>
+<p>First off, we do use <code>pygit2</code>, but only for tests.</p>
+<p>Second, the <code>pygit2</code> package depends on a 3rd party C library (<code>libgit2</code>) -
+and that can cause problems in certain cases. If we can, we prefer
+using pure-Python libraries for the production code.</p>
+<p>Finally, we prefer calling git "porcelain" commands, both for readability
+of the source code and ease of debugging (see below).</p>
+<h1 id="why_do_you_hide_which_git_commands_are_run">Why do you hide which git commands are run?<a class="headerlink" href="#why_do_you_hide_which_git_commands_are_run" title="Permanent link">&para;</a></h1>
+<p>It's mainly a matter of not cluttering the output.
+We take care of keeping the output of <code>tsrc</code> both concise, readable and
+informative.</p>
+<p>That being said:</p>
+<ul>
+<li>In case a git command fails, we'll display the full command that was run.</li>
+<li>If you still need to see <em>all</em> the git commands that are run, we provide a
+  <code>--verbose</code> flag, like so: <code>tsrc --verbose sync</code></li>
+</ul>
+<h1 id="why_argh">Why argh?<a class="headerlink" href="#why_argh" title="Permanent link">&para;</a></h1>
+<p>Because we need (almost) all of <code>argparse</code> features, but still want to keep the
+code DRY.</p>
+<h1 id="why_yaml">Why YAML?<a class="headerlink" href="#why_yaml" title="Permanent link">&para;</a></h1>
+<p>It's nice to read and write, and we use the excellent <a href="https://yaml.readthedocs.io/en/latest/">ruamel.yaml</a> which even has round-trip support.</p>
+<p>Also, being Python fans, we don't mind that white space is part of the syntax.</p>
+<h1 id="why_do_i_have_to_create_a_separate_git_repo_with_just_one_file_in_it">Why do I have to create a separate git repo with just one file in it?<a class="headerlink" href="#why_do_i_have_to_create_a_separate_git_repo_with_just_one_file_in_it" title="Permanent link">&para;</a></h1>
+<p>See <a href="https://github.com/dmerejkowsky/tsrc/issues/235">#235</a> for why you can't
+have multiple manifest files in the same repository.</p>
+<p>Also, note that you can put other files in the repo - for instance,
+add a CI script that verifies the yaml syntax and checks that all the repos
+in the manifest can be cloned.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../changelog/" class="btn btn-neutral float-right" title="Changelog">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../code-manifesto/" class="btn btn-neutral" title="Code manifesto"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dmerejkowsky/tsrc/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../code-manifesto/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../changelog/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

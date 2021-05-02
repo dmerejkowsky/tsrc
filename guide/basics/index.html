@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Basic usage - tsrc documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Basic usage";
+    var mkdocs_page_input_path = "guide/basics.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> tsrc documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Usage</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Basic usage</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#creating_a_manifest">Creating a manifest</a></li>
+    
+
+    <li class="toctree-l3"><a href="#cloning_a_set_of_repositories">Cloning a set of repositories</a></li>
+    
+
+    <li class="toctree-l3"><a href="#making_sure_all_the_repositories_are_up_to_date">Making sure all the repositories are up to date</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../groups/">Using groups</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Reference</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../ref/cli/">Command line usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ref/formats/">Configuration files formats</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../contrib/">Contributing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../code-manifesto/">Code manifesto</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../faq/">FAQ</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../changelog/">Changelog</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">tsrc documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Usage &raquo;</li>
+        
+      
+    
+    <li>Basic usage</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dmerejkowsky/tsrc/edit/master/docs/guide/basics.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="creating_a_manifest">Creating a manifest<a class="headerlink" href="#creating_a_manifest" title="Permanent link">&para;</a></h2>
+<p><code>tsrc</code> is driven by a manifest file that contains the names and paths of repositories to use.</p>
+<p>It is a YAML file that looks like this:</p>
+<pre><code class="language-yaml">repos:
+  - url: git@gitlab.local:acme/foo
+    dest: foo
+
+  - url: git@gitlab.local:acme/bar
+    dest: bar
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The full manifest file format is described in the <a href="../../ref/formats/">reference</a>.</p>
+</div>
+<p>The manifest <em>must</em> be stored in its own git repository, so that changes in the
+manifest can be tracked like any other code change. The file <em>must</em> be named <code>manifest.yml</code></p>
+<h2 id="cloning_a_set_of_repositories">Cloning a set of repositories<a class="headerlink" href="#cloning_a_set_of_repositories" title="Permanent link">&para;</a></h2>
+<p>Once the manifest repository is ready, you can run the following commands to create a new workspace:</p>
+<pre><code class="language-bash">$ mkdir ~/work
+$ cd work
+
+$ tsrc init git@gitlab.local:acme/manifest.git
+</code></pre>
+<p>In this example:</p>
+<ul>
+<li><code>tsrc</code> will record the manifest URL in <code>.tsrc/config.yml</code>.</li>
+<li>Then it will clone the manifest inside <code>.tsrc/manifest</code></li>
+<li>Then <code>foo</code> will be cloned in <code>&lt;work&gt;/foo</code> using <code>git@gitlab.local/acme/foo.git</code> as the <code>origin</code> remote URL.</li>
+<li>Similarly, <code>bar</code> will be cloned in <code>&lt;work&gt;/bar</code> using <code>git@gitlab.local:acme/bar.git</code>.</li>
+</ul>
+<h2 id="making_sure_all_the_repositories_are_up_to_date">Making sure all the repositories are up to date<a class="headerlink" href="#making_sure_all_the_repositories_are_up_to_date" title="Permanent link">&para;</a></h2>
+<p>You can update all the repositories by using <code>tsrc sync</code>.</p>
+<ul>
+<li>First, the manifest clone is updated to match the latest commit on the manifest repository.</li>
+<li>If new repositories have been added to the manifest, they will be cloned.</li>
+<li>Finally, all repositories are <em>synced</em>.</li>
+</ul>
+<p>The <code>sync</code> algorithm looks like this:</p>
+<ul>
+<li>Run <code>git fetch --tags --prune</code></li>
+<li>Check if the repository is on a branch</li>
+<li>Check if the currently checked out branch matches the one configured in
+  the manifest</li>
+<li>Check if the repository is dirty</li>
+<li>Try and run a fast-forward merge</li>
+</ul>
+<p>Note that:</p>
+<ul>
+<li><code>git fetch</code> is always called so that local refs are up-to-date</li>
+<li><code>tsrc</code> will simply print an error and move on to the next repository if the
+  fast-forward merge is not possible. That's because <code>tsrc</code> cannot guess
+  what the correct action is, so it prefers doing nothing. It's up
+  to the user to run something like <code>git merge</code> or <code>git rebase</code>.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../groups/" class="btn btn-neutral float-right" title="Using groups">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dmerejkowsky/tsrc/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../groups/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
